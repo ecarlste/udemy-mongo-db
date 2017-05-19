@@ -21,4 +21,13 @@ describe('Deleting a user', () => {
         done()
       })
   })
+
+  it('class method remove', (done) => {
+    User.remove({name: 'Joe'})
+      .then(() => User.findOne({name: 'Joe'}))
+      .then((user) => {
+        assert(user === null)
+        done()
+      })
+  })
 })
