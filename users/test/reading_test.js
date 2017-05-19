@@ -20,4 +20,8 @@ describe('Reading users out of the database', () => {
         done()
       })
   })
+
+  it('find a user with a particular id', (done) => {
+
+  })
 })
