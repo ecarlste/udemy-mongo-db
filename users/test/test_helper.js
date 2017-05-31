@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose')
 const before = require('mocha').before
 const beforeEach = require('mocha').beforeEach
@@ -15,7 +14,13 @@ before((done) => {
 })
 
 beforeEach((done) => {
-  mongoose.connection.collections.users.drop(() => {
-    done()
+  const {users, comments, blogposts} = mongoose.connection.collections
+
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        done()
+      })
+    })
   })
 })
