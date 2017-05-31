@@ -43,4 +43,13 @@ describe('Updating records', () => {
   it('A model class can find a record with an Id and update', (done) => {
     assertName(User.findByIdAndUpdate(joe._id, {name: 'Alex'}), done)
   })
+
+  it('A user can having their likes incremented by 1', (done) => {
+    User.update({name: 'Joe'}, {$inc: {likes: 10}})
+      .then(() => User.findOne({name: 'Joe'}))
+      .then((user) => {
+        assert(user.likes === 10)
+        done()
+      })
+  })
 })
