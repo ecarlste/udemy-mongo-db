@@ -12,7 +12,7 @@ describe('Virtual types', () => {
 
     joe.save()
       .then(() => User.findOne({name: 'Joe'}))
-      .then((user) => {
+      .then(() => {
         assert(joe.postCount === 1)
         done()
       })
