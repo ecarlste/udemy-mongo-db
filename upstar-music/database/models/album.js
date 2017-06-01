@@ -11,4 +11,4 @@ const AlbumSchema = new Schema({
     revenue: Number
 });
 
-module.exports = Album;
+module.exports = AlbumSchema;
